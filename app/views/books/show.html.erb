@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="main row">
+        <div class="col-lg-5">
+            <%= render 'users/info', user: @user %>
+            <%= render 'new', book: Book.new %>
+        </div>
+    <div class="col-lg-7">
+    <h2>Book detail</h2>
+    <table class="table table-striped">
+        <tr>
+        <td><%= image_tag @book.user.get_profile_image(80,80) %></td>
+        <td>title: <%= @book.title %></td>
+        <td>opinion: <%= @book.opinion %></td>
+        <td>name: <%= @book.user.name %></td>
+        <% if @book.user_id == current_user.id %>
+        <td><span class="link_button"><%= link_to 'edit', edit_book_path(@book.id)%></span></td>
+        <td><span class="link_button"><%= link_to 'back', books_path%></span></td>
+        <% end %>
+        </tr>
+    </table>
+    </div>
+</div>

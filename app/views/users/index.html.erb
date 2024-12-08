@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="main row">
+        <div class="col-lg-5">
+            <%= render 'info', user: current_user %>
+            <%= render 'books/new', book: @book %>
+        </div>
+    <div class="col-lg-7">
+    <h2>Users</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Image</th><th>Name</th>
+                </tr>
+                <% @users.each do |user| %>
+                <tr>
+                    <td><%= image_tag user.get_profile_image(80,80) %></td>
+                    <td><%= user.name %></td>
+                    <td><span class="link_button"><%= link_to 'Show' , user_path(user.id) %></span></td>
+                </tr>
+            <% end %>
+            </table>
+        </div>
+    </div>
+</div>
