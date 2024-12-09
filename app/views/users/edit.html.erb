@@ -1,0 +1,17 @@
+<div class="flash row"><%= flash[:notice] %></div>
+<div class="head row d-flex justify-content-center lg-7">
+<h2>User info</h2>
+</div>
+<div class="main row d-flex justify-content-center lg-7">
+    <%= form_with model: @user do |f| %>
+        <div class="pt=3 w-100">Name</div>
+            <%= f.text_field :name,autofocus: true, id: "inputName", placeholder:"名前" %>
+        <div class="pt-3 w-100">ProfileImage</div>
+            <%= f.file_field :profile_image, placeholder:"プロフィール画像", accept: "image/*" %>
+            <div class="pt-3 w-100">Intro</div>
+            <%= f.text_area :introduction %>
+           <div class="pt-3 w-100">
+            <%= f.submit "Update User" ,class: 'btn btn-secondary'%>
+            </div>
+    <% end %>
+</div>

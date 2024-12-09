@@ -1,10 +1,12 @@
 class HomesController < ApplicationController
   def top
-    if user_signed_in?
     @user = current_user
-    @book = Book.new
-    @books = current_user.books
-    else
-    end
+    @books = Book.all
+    @users = User.all
+  end
+  def about
+    @user = current_user
+    @books = Book.all
+    @users = User.all
   end
 end
