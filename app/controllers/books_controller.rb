@@ -13,11 +13,7 @@ class BooksController < ApplicationController
         if @book.save
         flash[:notice] = "You have created book successfully."
         redirect_to book_path(@book.id)
-        elsif @book.title==""
-            flash.now[:notice] = "can't be blank"
-            render :index
         else
-        flash.now[:notice] = "An error has occured."
         render :index
     end
     end
